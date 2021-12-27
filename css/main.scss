@@ -1,0 +1,231 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+$primary:rgb(35, 215, 206);
+$gray:rgb(128, 128, 128);
+
+$theme-colors : (
+"primary":$primary,
+"gray":$gray
+
+);
+
+$custom-color: (
+
+  "icon-background":rgba(185, 24, 82,0.2)
+);
+
+/* mearge map */
+
+
+$theme-colors:map-merge($theme-colors , $custom-color );
+
+
+
+
+
+
+@import "./bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+
+
+.main-navigation
+{
+
+  font-family: Titillium Web;  
+  font-weight: 600;
+
+    .current-menu-item {
+
+     color:rgb(35, 215, 206);
+
+
+
+
+
+    }
+
+    a {
+
+      text-transform: uppercase;
+
+        color: var(--bs-black);
+        padding: 0.6rem 1.2rem;
+
+
+    }
+
+    a:hover {
+     
+    color:rgb(35, 215, 206);
+
+
+  }
+
+  .menu-toggle {
+
+    background-color: white;
+    color: black;
+    border: black;
+    border: 3px solid;
+
+  }
+
+  .sub-menu {
+    li {
+
+      background-color: white;
+      
+
+    }
+
+    a:hover {
+     
+      color:rgb(35, 215, 206);
+  
+      }
+
+  }
+
+  
+}
+
+
+.banner {
+  background: url(../img/cover/cover02.png) ; 
+  height: 100vh;
+  background-position:center ;
+  background-repeat: no-repeat;
+  
+   h2 {
+
+    color: rgb(255, 255, 255);
+
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color:black;
+  
+    
+    
+    
+  
+}
+
+
+
+  
+}
+
+.hover06 figure img {
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+
+.hover06 figure:hover img {
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Learn more:
+// @link https://dev.to/5t3ph/pure-css-typing-animation-1nld
+
+// "Type" width
+// - controls how much the word container expands when each letter is "typed"
+// - will need adjusted depending on word and typeface
+$chWidth: 0.49em;
+// Word length
+$chCount: 14;
+// Typing animation length
+$typeDuration: 180ms * $chCount;
+
+$color:$primary;
+
+
+
+
+
+
+
+h1 {
+  font-size: 3rem;
+	text-align: center;
+  color: white;
+}
+
+.type-animation {
+	// Required for keeping expected alignment
+	display: inline-flex;
+	// Start out by hiding via width and overflow
+	width: 0;
+	overflow: hidden;
+	// Leave room for cursor!
+
+
+	&:after {
+		content: "";
+	
+		position: absolute;
+		right: 0;
+		top: -0.05em;
+		bottom: -0.05em;
+		width: 0.08em;
+		border-right: 2px solid transparent;
+	}
+
+	&.animating {
+		animation: type $typeDuration;
+		// "stick" to last frame
+		animation-fill-mode: forwards;
+		animation-delay: 1s;
+
+		&:after {
+			$cursorLoopCount: ((($chCount + 1) * 180)/320) + 3;
+			animation: cursor 320ms $cursorLoopCount ease-in-out;
+		}
+	}
+}
+
+
+
+$frameSize: 100 / $chCount;
+@keyframes type {
+	@for $ch from 1 to $chCount {
+		$frame: $ch * $frameSize;
+		#{$frame}% {
+			width: $ch * $chWidth;
+		}
+	}
+	100% {
+		width: ($chCount - 1) * $chWidth;
+		padding-right: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
